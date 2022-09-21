@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from .models import Product
+from .models import Product,Collection
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -10,3 +10,8 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data): 
         return super().create(validated_data)
+
+class CollectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Collection
+        fields ='__all__'
